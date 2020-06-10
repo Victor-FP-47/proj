@@ -1,0 +1,54 @@
+import java.text.DecimalFormat;
+import java.util.Scanner;
+
+public class exemplos {
+
+	public static void main(String[] args) {
+	
+		
+		Scanner teclado = new Scanner(System.in);
+		 DecimalFormat df_1 = new DecimalFormat("0.0");
+		
+		
+		System.out.println("Informe a primeira nota: ");
+		double nota1 = teclado.nextDouble();
+		System.out.println("Informe a segunda nota: ");
+		double nota2 = teclado.nextDouble();
+		System.out.println("Informe a sua nota na recuperação: ");
+		double nota3 = teclado.nextDouble();
+		System.out.println("Informe a nota do seu simulado: ");
+		double nota4 = teclado.nextDouble();	
+		teclado.close();
+		
+		double notamaisbaixa = 0;
+		double notamaisalta = 0;
+		if (nota1 < nota2) {
+			notamaisbaixa = nota1; 
+			notamaisalta = nota2;
+		} else {
+			notamaisbaixa = nota2; 
+			notamaisalta = nota1;
+		}
+		
+		if (nota3 > notamaisbaixa) {
+			notamaisbaixa = nota3;
+		}
+		
+	
+		double mediaA_s = (notamaisbaixa + notamaisalta) /2;
+		
+		double notaSimulado = nota4 * 0.15; 
+		
+		double mediaFinal = (mediaA_s * 0.85) + notaSimulado;
+		
+		if (mediaFinal >= 7) {
+			System.out.println("Sua média no trimestre foi de: "+ df_1.format(mediaFinal) + " parabéns");
+		} else {
+			System.out.println("Sua média foi de: "+ df_1.format(mediaFinal) + " Você está em recuperação");
+		}
+		
+		}
+		
+
+
+	}
